@@ -1,164 +1,129 @@
-# 🌱 Daily Habit Streak Board – Frontend
+---
 
-A lightweight and intuitive habit tracking interface that helps users stay consistent with their daily routines using checkboxes, streak counters, and a weekly summary view.
+# 🌿 HabitFlow: Daily Streak Board
+
+### *Consistency, visualized.*
+
+**HabitFlow** is a sleek, lightweight interface designed to turn daily discipline into a visual journey. By combining minimalist design with powerful streak logic, it provides users with the immediate feedback loop necessary to build life-changing routines.
 
 ---
 
-## 📌 Overview
+## 💎 Key Features
 
-This frontend application provides a clean UI for users to:
 
-* Track daily habits with simple checkboxes
-* View current streaks for each habit
-* Analyze weekly progress through a summary dashboard
+|                     |                                                                  |
+| ------------------- | ---------------------------------------------------------------- |
+| **Feature**         | **Description**                                                  |
+| **Daily Checklist** | One-tap completion for your daily rituals.                       |
+| **Streak Engine**   | Real-time fire icons (🔥) to visualize your momentum.            |
+| **Weekly Insights** | A birds-eye view of your habits across the last 7 days.          |
+| **Adaptive UI**     | A fluid experience that feels native on both mobile and desktop. |
 
-The system is designed with modular responsibilities:
-
-* Backend handles checklist persistence, streak logic, and summary calculations
-* Frontend focuses on user interaction, visualization, and experience
-
----
-
-## ✨ Features
-
-* ✅ **Daily Habit Checklist**
-  Easily mark habits as completed for the day
-
-* 🔥 **Streak Counter Display**
-  Visual representation of current streaks for motivation
-
-* 📊 **Weekly Summary View**
-  Displays habit completion trends over the week
-
-* 🎨 **Responsive UI**
-  Works smoothly across desktop and mobile devices
 
 ---
 
-## 🧱 Tech Stack
+## 🛠 Tech Stack
 
-* **Framework**: (React / Vue / Vanilla JS — update as per your project)
-* **Styling**: CSS / Tailwind / Bootstrap
-* **State Management**: (Context API / Redux / Local State)
-* **API Integration**: REST APIs from backend
+- **Core:** [React.js](https://www.google.com/search?q=https://reactjs.org/) (Vite)
+- **Styling:** [Tailwind CSS](https://www.google.com/search?q=https://tailwindcss.com/)
+- **Icons:** [Lucide React](https://www.google.com/search?q=https://lucide.dev/)
+- **State:** React Context API
+- **Networking:** Axios / Fetch API
 
 ---
 
-## 📂 Project Structure
+## 🏗 Project Architecture
+
+The frontend is structured for **scalability** and **separation of concerns**:
+
+Bash
 
 ```
-frontend/
-│── public/
-│── src/
-│   ├── components/
-│   │   ├── HabitList.jsx
-│   │   ├── HabitItem.jsx
-│   │   ├── StreakCounter.jsx
-│   │   ├── WeeklySummary.jsx
-│   │
-│   ├── pages/
-│   │   ├── Dashboard.jsx
-│   │
-│   ├── services/
-│   │   ├── api.js
-│   │
-│   ├── styles/
-│   │
-│   ├── App.jsx
-│   ├── main.jsx
-│
-│── package.json
-│── README.md
+src/
+├── 🧩 components/      # Reusable UI atoms and molecules
+│   ├── HabitList/      # Parent container for daily entries
+│   ├── Streak/         # Logic for fire counter visualizations
+│   └── Summary/        # Charting and weekly analytics
+├── 📄 pages/           # High-level route views (Dashboard)
+├── ⚙️ services/        # API communication layer (Axios)
+├── 🎨 styles/          # Global themes and Tailwind config
+└── 🧠 hooks/           # Custom logic for habit state
+
 ```
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Quick Start
 
-### 1. Clone the repository
+### 1. Installation
+
+Bash
 
 ```
 git clone <your-repo-url>
-cd frontend
-```
-
-### 2. Install dependencies
-
-```
+cd habitflow-frontend
 npm install
+
 ```
 
-### 3. Run the development server
+### 2. Configuration
+
+Create a `.env` file in the root directory:
+
+Code snippet
+
+```
+VITE_API_BASE_URL=http://localhost:5000/api
+
+```
+
+### 3. Launch
+
+Bash
 
 ```
 npm run dev
-```
-
----
-
-## 🔗 API Integration
-
-The frontend communicates with backend services for:
-
-* Fetching habit list
-* Updating daily completion status
-* Retrieving streak data
-* Loading weekly summaries
-
-Example endpoints:
 
 ```
-GET /habits
-POST /habits/:id/check
-GET /habits/streaks
-GET /summary/weekly
-```
 
 ---
 
-## 🎯 Responsibilities (Frontend Developer)
+## 🔌 API Interaction Map
 
-* Build reusable UI components
-* Integrate backend APIs
-* Manage application state
-* Ensure responsive and user-friendly design
+The frontend consumes the following micro-endpoints to ensure data persistence:
 
----
+> [!NOTE]
+>
+> All endpoints expect a valid JWT or Session ID for user-specific data.
 
-## 🤝 Collaboration
-
-This project follows a modular team approach:
-
-* Backend Dev 1 → Checklist logic
-* Backend Dev 2 → Streak & summary logic
-* Frontend Dev → UI & user experience
+- `GET /habits` — Fetches the active habit list for the current user.
+- `POST /habits/:id/toggle` — Marks a habit as complete/incomplete for the day.
+- `GET /analytics/streaks` — Retrieves calculated streak data.
+- `GET /analytics/weekly` — Returns a 7-day completion matrix.
 
 ---
 
-## 📈 Future Improvements
+## 🛤 Roadmap & Evolution
 
-* Dark mode 🌙
-* Notifications & reminders ⏰
-* Data visualization (charts/graphs) 📉
-* User authentication 🔐
-
----
-
-## 🧠 Why This Project Works
-
-The system is divided into independent modules:
-
-* Checklist management
-* Streak computation
-* Summary analytics
-* UI layer
-
-This allows parallel development and faster iteration with minimal dependency conflicts.
+- [ ] **Dark Mode 🌙** — Intelligent theme switching.
+- [ ] **Data Viz 📊** — High-performance charts using Recharts or D3.
+- [ ] **Smart PWA 📱** — Offline support and "Add to Home Screen" capability.
+- [ ] **Social Proof 🤝** — Shareable streak cards for social media.
 
 ---
 
-## 📜 License
+## 👥 The Team
 
-This project is for learning and collaboration purposes.
+- **Backend (Core):** Checklist persistence & DB Architecture.
+- **Backend (Logic):** Streak algorithms & Analytics computation.
+- **Frontend (Lead):** UI/UX Design, State Management, and API Integration.
 
 ---
+
+## 📄 License
+
+Distributed under the **MIT License**. See `LICENSE` for more information.
+
+---
+
+*Built with ❤️ for the habit-builders.*
